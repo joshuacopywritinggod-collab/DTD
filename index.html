@@ -3,108 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doubt to Domination | The Factory Reset</title>
+    <title>The Factory Reset | An Editorial by Joshua Charles E.</title>
     <style>
-        :root { --gold: #D4AF37; --black: #050505; --dark-grey: #121212; --white: #ffffff; --red: #ff4d4d; --green: #28a745; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--black); color: var(--white); margin: 0; padding: 0; line-height: 1.8; }
-        .container { padding: 50px 20px; max-width: 700px; margin: auto; }
+        :root { --gold: #D4AF37; --black: #050505; --dark-grey: #121212; --white: #e0e0e0; --red: #ff4d4d; --green: #28a745; }
+        body { font-family: 'Georgia', serif; background-color: var(--black); color: var(--white); margin: 0; padding: 0; line-height: 1.9; }
+        .container { padding: 60px 24px; max-width: 750px; margin: auto; }
         
-        h1, h2, h3 { color: var(--gold); text-transform: uppercase; line-height: 1.2; font-weight: 900; }
-        h1 { font-size: 2.5rem; text-align: center; margin-bottom: 20px; }
-        .warning { color: var(--red); font-weight: bold; text-transform: uppercase; text-align: center; display: block; margin-bottom: 10px; border: 1px solid var(--red); padding: 5px; }
+        /* Article Headers */
+        .kicker { color: var(--gold); text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: 3px; font-size: 0.9rem; display: block; text-align: center; margin-bottom: 10px; }
+        h1 { font-size: 3rem; color: #fff; line-height: 1.1; text-align: center; margin-bottom: 40px; font-family: 'Inter', sans-serif; font-weight: 900; }
+        .author-line { text-align: center; font-style: italic; color: #888; margin-bottom: 50px; border-bottom: 1px solid #333; padding-bottom: 20px; }
         
-        /* Timer Style */
-        #timer-box { background: var(--red); color: white; text-align: center; padding: 15px; font-weight: bold; font-size: 1.2rem; position: sticky; top: 0; z-index: 100; border-radius: 0 0 10px 10px; }
-        
-        .highlight { color: var(--gold); }
-        .pain-section { background: var(--dark-grey); padding: 30px; border-left: 5px solid var(--red); margin: 40px 0; }
-        
-        /* Invoice/Social Proof Style */
-        .invoice-card { background: white; color: black; padding: 20px; border-radius: 10px; margin: 20px 0; font-family: monospace; box-shadow: 0 5px 15px rgba(255,255,255,0.1); }
-        .invoice-header { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px; }
-        .status-paid { background: var(--green); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
+        /* Timer Sticky */
+        #timer-box { background: var(--red); color: white; text-align: center; padding: 12px; font-family: 'Inter', sans-serif; font-weight: bold; position: sticky; top: 0; z-index: 1000; font-size: 1rem; }
 
-        /* Testimonial Style */
-        .testimonial { font-style: italic; background: #1a1a1a; padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid #333; }
-        .author-info { color: var(--gold); font-weight: bold; font-style: normal; display: block; margin-top: 10px; }
-
-        .price-anchor { background: #1a1a10; padding: 30px; border: 2px dashed var(--gold); text-align: center; margin: 40px 0; }
-        .old-price { text-decoration: line-through; color: var(--red); font-size: 1.5rem; }
-        .current-price { font-size: 3.5rem; color: var(--gold); font-weight: 900; display: block; }
+        /* Typography */
+        p { margin-bottom: 25px; font-size: 1.15rem; }
+        .dropcap { float: left; font-size: 4rem; line-height: 1; font-weight: bold; margin-right: 10px; color: var(--gold); font-family: 'Inter', sans-serif; }
+        h2 { font-family: 'Inter', sans-serif; color: var(--gold); font-size: 2rem; margin-top: 50px; text-transform: uppercase; }
         
-        .cta-button { display: block; background-color: var(--gold); color: var(--black); text-align: center; padding: 25px; text-decoration: none; font-weight: 900; font-size: 1.5rem; border-radius: 10px; text-transform: uppercase; margin-top: 20px; }
-        footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
+        /* Accents */
+        .pull-quote { font-size: 1.8rem; color: var(--gold); font-style: italic; border-left: 4px solid var(--gold); padding-left: 20px; margin: 40px 0; line-height: 1.4; }
+        .pain-accent { color: var(--red); font-weight: bold; }
+        
+        /* Invoices */
+        .social-proof { background: #fff; color: #000; padding: 20px; border-radius: 8px; font-family: monospace; margin: 30px 0; font-size: 0.9rem; }
+        .status { background: var(--green); color: #fff; padding: 2px 6px; border-radius: 3px; font-size: 0.7rem; float: right; }
+
+        /* Offer Section */
+        .offer-box { background: var(--dark-grey); border: 2px solid var(--gold); padding: 40px; margin: 60px 0; border-radius: 15px; font-family: 'Inter', sans-serif; text-align: center; }
+        .old-price { text-decoration: line-through; color: #666; font-size: 1.4rem; }
+        .new-price { font-size: 4rem; color: var(--gold); font-weight: 900; display: block; margin: 10px 0; }
+        
+        .cta-button { display: block; background: var(--gold); color: #000; padding: 25px; text-decoration: none; font-weight: 900; border-radius: 8px; text-transform: uppercase; font-size: 1.4rem; transition: 0.3s; }
+        .hero-moment { background: #1a1a10; padding: 40px; border-radius: 15px; text-align: center; margin-top: 60px; }
+
+        @media (max-width: 600px) { h1 { font-size: 2.2rem; } .new-price { font-size: 3rem; } }
     </style>
 </head>
 <body>
 
-<div id="timer-box">⏳ DISCOUNT EXPIRES IN: <span id="timer">48:00:00</span></div>
+<div id="timer-box">⏳ THE PRICE RESETS TO ₦75,000 IN: <span id="timer">48:00:00</span></div>
 
 <div class="container">
-    <span class="warning">ATTENTION: Not for the "Cheap" or the "Broke-Minded"</span>
+    <span class="kicker">The Psychology of Wealth</span>
+    <h1>The Invisible Prison: Why Your Genius is Not Making You Rich.</h1>
+    <div class="author-line">By Joshua Charles E.</div>
+
+    <p><span class="dropcap">T</span>he most dangerous lie you’ve ever been told is that "hard work" is the key to abundance. If that were true, the streets of Lagos would be paved with gold from the sweat of every laborer. But they aren't. </p>
     
-    <h1>STOP BEING THE "INVISIBLE" GENIUS.</h1>
+    <p>You sit there, staring at your <strong>Vivo Y1</strong> or your laptop, watching others—people with half your talent—command the life you want. You have published books on Selar that sit in silent digital graveyards. You have business ideas that never leave the "planning" stage. You are waiting for the "right time," not realizing that time is a thief currently stealing your youth.</p>
+
+    <div class="pull-quote">"You don't need more information. You need a Factory Reset."</div>
+
+    <h2>The Pain: The "Owner-Slave" Syndrome</h2>
+    <p>Right now, you are suffering from <strong>Learned Helplessness.</strong> You’ve been trained to believe that you need money to make money. You’ve been trained to believe that if you aren't physically "doing" everything, the money won't come. </p>
     
-    <p>You have the talent. You’ve published the books. You’ve started the business. Yet, you are still staring at a bank balance that doesn't match your effort.</p>
-
-    <p>Why? Because you are suffering from <strong>"The Moses Problem."</strong> You are so busy staring at the "Red Sea" of your limitations that you’ve forgotten you are holding the staff of <strong>Domination.</strong></p>
-
-    <div class="pain-section">
-        <h2>THE BRUTAL TRUTH OF THE "OWNER-SLAVE"</h2>
-        <p>If you don't solve this today, here is your future:</p>
-        <ul>
-            <li><strong>The Author’s Death:</strong> Your books on Selar will continue to gather digital dust until you give up and conclude that "writing doesn't pay."</li>
-            <li><strong>Financial Stagnation:</strong> You will keep working for money, instead of building the <strong>EQSP System</strong> that makes money work for you.</li>
-            <li><strong>The Burnout:</strong> Eventually, the "illusion of limitation" will become your reality, and you will settle for a life of "Almost."</li>
-        </ul>
-    </div>
-
-    <h2>WHAT THE "RESET" LOOKS LIKE...</h2>
+    <p class="pain-accent">This is the Owner-Slave Trap.</p>
     
-    <div class="testimonial">
-        "I had 3 books on Selar for 8 months. Zero sales. After the Part 2 Sensory Trigger lesson in the System, I made 14 sales in 48 hours. I wasn't lacking knowledge; I was lacking the right 'Motion'."
-        <span class="author-info">— Emeka O., Digital Publisher</span>
+    <p>If you take your hand off the steering wheel for 48 hours, your income dies. You don't own a business; you own a high-stress prison cell. This "Identity" of the hardworking, struggling expert is the very thing holding you back from <strong>Eden.</strong></p>
+
+    <h2>The Agitation: The Cost of Your Silence</h2>
+    <p>Every day you remain an "Invisible Genius," you are losing more than just money. You are losing your <strong>Perceived Value.</strong> Marketplaces don't reward "good" people; they reward "dominant" systems. </p>
+    
+    <p>If you don't fix this software error in your brain today, 2026 will end exactly like 2025. You will still be refreshing your Selar dashboard, looking for sales that aren't there. You will still be "praying" for a breakthrough while ignoring the <strong>Surgical System</strong> standing right in front of you.</p>
+
+    <h2>The Transition: The Bridge Back to Eden</h2>
+    <p>There is a shortcut. It’s called <strong>Doubt to Domination.</strong> It is the radar that steers you away from the rocks of "almost" and into the harbor of "Abundance." I didn't write this to give you more words to read—I wrote it to put your world in <strong>Motion.</strong></p>
+
+    <h2>Why the System Outweighs the Pain</h2>
+    <p>While the rest of the world is stuck in "The Moses Problem"—complaining about the Red Sea—you will be using the <strong>EQSP Wealth System</strong> to build a machine that works while you sleep. While other authors are "hoping" for sales, you will be using <strong>Sensory Triggers</strong> to make your products a biological necessity for your buyers.</p>
+
+    <div class="social-proof">
+        <span class="status">SUCCESSFUL</span>
+        <strong>OPAY NOTIFICATION</strong><br>
+        NAME: Segun A. (Agency Owner)<br>
+        PURCHASE: The Reset System<br>
+        MEMO: "Best 15k I've ever spent. I see the walls falling already."
     </div>
 
-    <div class="testimonial">
-        "I was the slave to my own business. If I slept, the money stopped. The Wealth System (Part 3) showed me how to build a machine. Now my business runs on my Vivo while I focus on bigger projects."
-        <span class="author-info">— Sarah T., Agency Owner</span>
-    </div>
-
-    <h2>PEOPLE ARE ALREADY MOVING...</h2>
-    <p>Success leaves a paper trail. Here is what the "Dominator Circle" looks like right now:</p>
-
-    <div class="invoice-card">
-        <div class="invoice-header">
-            <span><strong>OPAY TRANSACTION</strong></span>
-            <span class="status-paid">SUCCESSFUL</span>
-        </div>
-        TO: Joshua Charles E.<br>
-        FROM: Tunde W. (Digital Consultant)<br>
-        AMOUNT: <span style="font-weight: bold;">₦15,000.00</span><br>
-        REF: DB-DOM-9921
-    </div>
-
-    <div class="invoice-card">
-        <div class="invoice-header">
-            <span><strong>PALMPAY TRANSFER</strong></span>
-            <span class="status-paid">SUCCESSFUL</span>
-        </div>
-        TO: Joshua Charles E.<br>
-        FROM: Chioma A. (Author/Coach)<br>
-        AMOUNT: <span style="font-weight: bold;">₦15,000.00</span><br>
-        REF: DB-DOM-8843
-    </div>
-
-    <div class="price-anchor">
-        <h3>THE COST OF STAYING STUCK</h3>
-        <p>If you hire a consultant to fix your business: ₦250,000<br>
-        If you take a 4-year Marketing Degree: ₦1,500,000<br>
-        The cost of 1 more year of 0 sales: <strong>PRICELESS (and painful)</strong></p>
-        
-        <p class="old-price">TOTAL VALUE: ₦75,000</p>
-        <p>LIMITED DISCOUNT PRICE:</p>
+    <div class="offer-box">
+        <h3>CLAIM YOUR FACTORY RESET</h3>
+        <p>If you were to hire me for a 1-on-1 strategy session, it would cost you <strong>₦150,000.</strong></p>
+        <p class="old-price">Standard Price: ₦75,000</p>
+        <p>FOR THE NEXT 48 HOURS ONLY:</p>
         <span class="new-price">₦15,000</span>
+        <a href="https://wa.link/nrafvh" class="cta-button">I'm Ready to Dominate</a>
+        <p style="margin-top:20px; font-size:0.8rem; color:#888;">Note: If ₦15,000 feels like a "risk," you have already lost. This is for those who value their future more than a few pizzas.</p>
+    </div>
+
+    <div class="hero-moment">
+        <h2>"You can steer yourself any direction you choose."</h2>
+        <p>The Hero isn't the person who never felt doubt. The Hero is the person who felt the doubt, saw the limitation, and decided to <strong>Shatter</strong> it anyway. Your <strong>Eden</strong> is waiting. Will you walk in, or will you stay in the desert?</p>
+        <a href="https://wa.link/nrafvh" class="cta-button" style="background: #fff; color: #000; margin-top: 30px;">THE RESET STARTS HERE</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 JOSHUA CHARLES E. | THE DOMINATOR CIRCLE</p>
+    </footer>
+</div>
+
+<script>
+    let time = 48 * 60 * 60; 
+    const timerEl = document.getElementById('timer');
+    setInterval(() => {
+        let h = Math.floor(time / 3600);
+        let m = Math.floor((time % 3600) / 60);
+        let s = time % 60;
+        timerEl.innerHTML = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        if (time > 0) time--;
+    }, 1000);
+</script>
+
+</body>
+</html>        <span class="new-price">₦15,000</span>
         <p>Once the timer hits zero, the price resets to ₦75,000. No exceptions.</p>
     </div>
 
