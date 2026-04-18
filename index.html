@@ -3,94 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Doubt to Domination System</title>
+    <title>Doubt to Domination | The Factory Reset</title>
     <style>
-        :root { --gold: #D4AF37; --black: #050505; --dark-grey: #121212; --white: #ffffff; --red: #ff4d4d; }
+        :root { --gold: #D4AF37; --black: #050505; --dark-grey: #121212; --white: #ffffff; --red: #ff4d4d; --green: #28a745; }
         body { font-family: 'Inter', sans-serif; background-color: var(--black); color: var(--white); margin: 0; padding: 0; line-height: 1.8; }
-        .container { padding: 50px 20px; max-width: 650px; margin: auto; }
+        .container { padding: 50px 20px; max-width: 700px; margin: auto; }
         
-        /* Headers */
-        h1, h2, h3 { color: var(--gold); text-transform: uppercase; line-height: 1.2; }
-        h1 { font-size: 2.8rem; margin-bottom: 10px; border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
-        h2 { font-size: 1.8rem; margin-top: 40px; }
+        h1, h2, h3 { color: var(--gold); text-transform: uppercase; line-height: 1.2; font-weight: 900; }
+        h1 { font-size: 2.5rem; text-align: center; margin-bottom: 20px; }
+        .warning { color: var(--red); font-weight: bold; text-transform: uppercase; text-align: center; display: block; margin-bottom: 10px; border: 1px solid var(--red); padding: 5px; }
         
-        .warning { color: var(--red); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
-        .highlight { color: var(--gold); font-weight: bold; }
+        /* Timer Style */
+        #timer-box { background: var(--red); color: white; text-align: center; padding: 15px; font-weight: bold; font-size: 1.2rem; position: sticky; top: 0; z-index: 100; border-radius: 0 0 10px 10px; }
         
-        /* Agitation Boxes */
-        .pain-section { background: var(--dark-grey); padding: 25px; border-left: 5px solid var(--red); margin: 30px 0; border-radius: 5px; }
-        .solution-section { background: #0f1a10; padding: 25px; border-left: 5px solid #28a745; margin: 30px 0; border-radius: 5px; }
+        .highlight { color: var(--gold); }
+        .pain-section { background: var(--dark-grey); padding: 30px; border-left: 5px solid var(--red); margin: 40px 0; }
         
-        /* List Styling */
-        ul { list-style: none; padding: 0; }
-        ul li { margin-bottom: 15px; padding-left: 30px; position: relative; }
-        ul li::before { content: '✕'; position: absolute; left: 0; color: var(--red); font-weight: bold; }
-        .check li::before { content: '✓'; color: #28a745; }
+        /* Invoice/Social Proof Style */
+        .invoice-card { background: white; color: black; padding: 20px; border-radius: 10px; margin: 20px 0; font-family: monospace; box-shadow: 0 5px 15px rgba(255,255,255,0.1); }
+        .invoice-header { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px; }
+        .status-paid { background: var(--green); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
 
-        /* CTA */
-        .price-tag { text-align: center; margin: 50px 0; }
-        .old-price { text-decoration: line-through; color: #666; font-size: 1.5rem; }
-        .new-price { font-size: 3rem; color: var(--gold); font-weight: 900; display: block; }
+        /* Testimonial Style */
+        .testimonial { font-style: italic; background: #1a1a1a; padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid #333; }
+        .author-info { color: var(--gold); font-weight: bold; font-style: normal; display: block; margin-top: 10px; }
+
+        .price-anchor { background: #1a1a10; padding: 30px; border: 2px dashed var(--gold); text-align: center; margin: 40px 0; }
+        .old-price { text-decoration: line-through; color: var(--red); font-size: 1.5rem; }
+        .current-price { font-size: 3.5rem; color: var(--gold); font-weight: 900; display: block; }
         
-        .cta-button { display: block; background-color: var(--gold); color: var(--black); text-align: center; padding: 25px; text-decoration: none; font-weight: 900; font-size: 1.4rem; border-radius: 10px; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
-        .cta-button:hover { background-color: #b8962d; transform: translateY(-3px); }
-        
-        footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #444; border-top: 1px solid #222; }
+        .cta-button { display: block; background-color: var(--gold); color: var(--black); text-align: center; padding: 25px; text-decoration: none; font-weight: 900; font-size: 1.5rem; border-radius: 10px; text-transform: uppercase; margin-top: 20px; }
+        footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
+<div id="timer-box">⏳ DISCOUNT EXPIRES IN: <span id="timer">48:00:00</span></div>
+
 <div class="container">
-    <p class="warning">Read every word or leave this page.</p>
-    <h1>The Invisible Prison of "Trying Harder"</h1>
-    <p>You’ve been told that if you just work harder, post more, and "believe in yourself," the money will follow. <span class="highlight">That is a lie.</span></p>
+    <span class="warning">ATTENTION: Not for the "Cheap" or the "Broke-Minded"</span>
     
-    <p>If hard work made people rich, every laborer in Lagos would be a billionaire. Right now, you are stuck in a cycle that is designed to keep you exhausted and broke.</p>
+    <h1>STOP BEING THE "INVISIBLE" GENIUS.</h1>
+    
+    <p>You have the talent. You’ve published the books. You’ve started the business. Yet, you are still staring at a bank balance that doesn't match your effort.</p>
+
+    <p>Why? Because you are suffering from <strong>"The Moses Problem."</strong> You are so busy staring at the "Red Sea" of your limitations that you’ve forgotten you are holding the staff of <strong>Domination.</strong></p>
 
     <div class="pain-section">
-        <h2>Does this sound like your life?</h2>
+        <h2>THE BRUTAL TRUTH OF THE "OWNER-SLAVE"</h2>
+        <p>If you don't solve this today, here is your future:</p>
         <ul>
-            <li><strong>The "Author" Graveyard:</strong> You’ve published books on Selar. You spent weeks writing them. And now? Silence. No sales. No notifications. Just the digital dust of your hard work.</li>
-            <li><strong>The Finance Ceiling:</strong> You see others making millions on your tiny phone screen, but your balance stays the same. You have the "Finance" problem, but you're treating it with "Hope" instead of a System.</li>
-            <li><strong>The Owner-Slave Trap:</strong> You run a business, but if you go off your phone for 2 hours, everything stops. You don't own a business; you own a high-stress job that pays poorly.</li>
+            <li><strong>The Author’s Death:</strong> Your books on Selar will continue to gather digital dust until you give up and conclude that "writing doesn't pay."</li>
+            <li><strong>Financial Stagnation:</strong> You will keep working for money, instead of building the <strong>EQSP System</strong> that makes money work for you.</li>
+            <li><strong>The Burnout:</strong> Eventually, the "illusion of limitation" will become your reality, and you will settle for a life of "Almost."</li>
         </ul>
     </div>
 
-    <h3>The Brutal Truth You're Ignoring...</h3>
-    <p>Every day you wait to fix this, it gets <span class="highlight">worse</span>. 
-    <br><br>
-    The "Selar Author" who doesn't learn sales psychology today will eventually give up on writing forever—killing their dreams. 
-    <br><br>
-    The "Stuck Business Owner" who doesn't build a system will eventually burn out, lose their health, and lose the business anyway. 
-    <br><br>
-    <span class="highlight">Prolonged failure isn't just a delay; it is a habit.</span> You are training your brain to be comfortable with "Almost."</p>
-
-    <div class="solution-section">
-        <h2>The Bridge: Doubt to Domination</h2>
-        <p>This is not a "book." This is a 3-part surgical strike on your failures.</p>
-        <ul class="check">
-            <li><strong>Kill the Doubt:</strong> We collapse the identity of the "Knight" who tries to please everyone and replace it with the **Director** who commands value.</li>
-            <li><strong>The Sales Engine:</strong> We don't "beg" for sales. We use Evolutionary Neurobiology to trigger the brain's "BUY" signal. This is why your Selar books are failing—you haven't triggered the lizard brain yet.</li>
-            <li><strong>The EQSP Machine:</strong> We build the system that allows the business to breathe without you. We move you from the "Engine Room" to the "Captain's Deck."</li>
-        </ul>
+    <h2>WHAT THE "RESET" LOOKS LIKE...</h2>
+    
+    <div class="testimonial">
+        "I had 3 books on Selar for 8 months. Zero sales. After the Part 2 Sensory Trigger lesson in the System, I made 14 sales in 48 hours. I wasn't lacking knowledge; I was lacking the right 'Motion'."
+        <span class="author-info">— Emeka O., Digital Publisher</span>
     </div>
 
-    <h2>Without this system, where will you be in 6 months?</h2>
-    <p>Probably right where you are now—refreshing your Selar dashboard, checking your bank balance with a sigh, and wondering why others have it so easy. <strong>But it doesn't have to be that way.</strong></p>
-
-    <div class="price-tag">
-        <span class="old-price">Worth ₦150,000</span>
-        <span class="new-price">ONLY ₦15,000</span>
-        <p>For the next 10 Dominators only.</p>
+    <div class="testimonial">
+        "I was the slave to my own business. If I slept, the money stopped. The Wealth System (Part 3) showed me how to build a machine. Now my business runs on my Vivo while I focus on bigger projects."
+        <span class="author-info">— Sarah T., Agency Owner</span>
     </div>
 
-    <a href="https://wa.link/nrafvh" class="cta-button">I’m Ready to Dominate</a>
+    <h2>PEOPLE ARE ALREADY MOVING...</h2>
+    <p>Success leaves a paper trail. Here is what the "Dominator Circle" looks like right now:</p>
+
+    <div class="invoice-card">
+        <div class="invoice-header">
+            <span><strong>OPAY TRANSACTION</strong></span>
+            <span class="status-paid">SUCCESSFUL</span>
+        </div>
+        TO: Joshua Charles E.<br>
+        FROM: Tunde W. (Digital Consultant)<br>
+        AMOUNT: <span style="font-weight: bold;">₦15,000.00</span><br>
+        REF: DB-DOM-9921
+    </div>
+
+    <div class="invoice-card">
+        <div class="invoice-header">
+            <span><strong>PALMPAY TRANSFER</strong></span>
+            <span class="status-paid">SUCCESSFUL</span>
+        </div>
+        TO: Joshua Charles E.<br>
+        FROM: Chioma A. (Author/Coach)<br>
+        AMOUNT: <span style="font-weight: bold;">₦15,000.00</span><br>
+        REF: DB-DOM-8843
+    </div>
+
+    <div class="price-anchor">
+        <h3>THE COST OF STAYING STUCK</h3>
+        <p>If you hire a consultant to fix your business: ₦250,000<br>
+        If you take a 4-year Marketing Degree: ₦1,500,000<br>
+        The cost of 1 more year of 0 sales: <strong>PRICELESS (and painful)</strong></p>
+        
+        <p class="old-price">TOTAL VALUE: ₦75,000</p>
+        <p>LIMITED DISCOUNT PRICE:</p>
+        <span class="new-price">₦15,000</span>
+        <p>Once the timer hits zero, the price resets to ₦75,000. No exceptions.</p>
+    </div>
+
+    <a href="https://wa.link/nrafvh" class="cta-button">YES! I WANT THE FACTORY RESET NOW</a>
 
     <footer>
-        <p>&copy; 2026 Joshua Charles E. | High-Ticket Systems</p>
-        <p>No Hardcopies. No Fluff. No Excuses. Only Domination.</p>
+        <p>&copy; 2026 JOSHUA CHARLES E. | SHATTERING THE ILLUSION OF LIMITATIONS</p>
+        <p>If ₦15,000 is "too much" to fix your life, this system is not for you. We only work with those ready to dominate.</p>
     </footer>
 </div>
 
+<script>
+    // 48 Hour Countdown Timer
+    let time = 48 * 60 * 60; 
+    const timerEl = document.getElementById('timer');
+
+    setInterval(() => {
+        let hours = Math.floor(time / 3600);
+        let minutes = Math.floor((time % 3600) / 60);
+        let seconds = time % 60;
+        timerEl.innerHTML = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        if (time > 0) time--;
+    }, 1000);
+</script>
+
 </body>
-</html>
+    </html>
