@@ -1,109 +1,223 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Factory Reset | An Editorial by Joshua Charles E.</title>
-    <style>
-        :root { --gold: #D4AF37; --black: #050505; --dark-grey: #121212; --white: #e0e0e0; --red: #ff4d4d; --green: #28a745; }
-        body { font-family: 'Georgia', serif; background-color: var(--black); color: var(--white); margin: 0; padding: 0; line-height: 1.9; }
-        .container { padding: 60px 24px; max-width: 750px; margin: auto; }
-        
-        /* Article Headers */
-        .kicker { color: var(--gold); text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: 3px; font-size: 0.9rem; display: block; text-align: center; margin-bottom: 10px; }
-        h1 { font-size: 3rem; color: #fff; line-height: 1.1; text-align: center; margin-bottom: 40px; font-family: 'Inter', sans-serif; font-weight: 900; }
-        .author-line { text-align: center; font-style: italic; color: #888; margin-bottom: 50px; border-bottom: 1px solid #333; padding-bottom: 20px; }
-        
-        /* Timer Sticky */
-        #timer-box { background: var(--red); color: white; text-align: center; padding: 12px; font-family: 'Inter', sans-serif; font-weight: bold; position: sticky; top: 0; z-index: 1000; font-size: 1rem; }
+@import "tailwindcss";
+@import "tw-animate-css";
 
-        /* Typography */
-        p { margin-bottom: 25px; font-size: 1.15rem; }
-        .dropcap { float: left; font-size: 4rem; line-height: 1; font-weight: bold; margin-right: 10px; color: var(--gold); font-family: 'Inter', sans-serif; }
-        h2 { font-family: 'Inter', sans-serif; color: var(--gold); font-size: 2rem; margin-top: 50px; text-transform: uppercase; }
-        
-        /* Accents */
-        .pull-quote { font-size: 1.8rem; color: var(--gold); font-style: italic; border-left: 4px solid var(--gold); padding-left: 20px; margin: 40px 0; line-height: 1.4; }
-        .pain-accent { color: var(--red); font-weight: bold; }
-        
-        /* Invoices */
-        .social-proof { background: #fff; color: #000; padding: 20px; border-radius: 8px; font-family: monospace; margin: 30px 0; font-size: 0.9rem; }
-        .status { background: var(--green); color: #fff; padding: 2px 6px; border-radius: 3px; font-size: 0.7rem; float: right; }
+@custom-variant dark (&:is(.dark *));
 
-        /* Offer Section */
-        .offer-box { background: var(--dark-grey); border: 2px solid var(--gold); padding: 40px; margin: 60px 0; border-radius: 15px; font-family: 'Inter', sans-serif; text-align: center; }
-        .old-price { text-decoration: line-through; color: #666; font-size: 1.4rem; }
-        .new-price { font-size: 4rem; color: var(--gold); font-weight: 900; display: block; margin: 10px 0; }
-        
-        .cta-button { display: block; background: var(--gold); color: #000; padding: 25px; text-decoration: none; font-weight: 900; border-radius: 8px; text-transform: uppercase; font-size: 1.4rem; transition: 0.3s; }
-        .hero-moment { background: #1a1a10; padding: 40px; border-radius: 15px; text-align: center; margin-top: 60px; }
+:root {
+  --primary: #1B4D3E;
+  --primary-foreground: #F5F1E8;
+  --background: #0F1419;
+  --foreground: #F5F1E8;
+  --card: #1A1F2E;
+  --card-foreground: #F5F1E8;
+  --secondary: #2A2E3E;
+  --muted: #2A2E3E;
+  --muted-foreground: #B0A89A;
+  --accent: #1B4D3E;
+  --accent-foreground: #D4AF37;
+  --border: #2A2E3E;
+  --input: #1A1F2E;
+}
 
-        @media (max-width: 600px) { h1 { font-size: 2.2rem; } .new-price { font-size: 3rem; } }
-    </style>
-</head>
-<body>
+@layer base {
+  * {
+    outline-offset: 2px;
+  }
+  
+  html {
+    background-color: #0F1419;
+    color: #F5F1E8;
+  }
+  
+  body {
+    background-color: #0F1419;
+    color: #F5F1E8;
+    font-family: 'Lora', serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  h1 {
+    font-size: 3.75rem;
+    line-height: 1.1;
+  }
+  
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 6rem;
+    }
+  }
+  
+  h2 {
+    font-size: 2.25rem;
+    line-height: 1.15;
+  }
+  
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 3rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h2 {
+      font-size: 3.75rem;
+    }
+  }
+  
+  h3 {
+    font-size: 1.875rem;
+    line-height: 1.2;
+  }
+  
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 2.25rem;
+    }
+  }
+  
+  h4 {
+    font-size: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    h4 {
+      font-size: 1.875rem;
+    }
+  }
+  
+  p {
+    font-family: 'Lora', serif;
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+  
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
-<div id="timer-box">⏳ THE PRICE RESETS TO ₦75,000 IN: <span id="timer">48:00:00</span></div>
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-<div class="container">
-    <span class="kicker">The Psychology of Wealth</span>
-    <h1>The Invisible Prison: Why Your Genius is Not Making You Rich.</h1>
-    <div class="author-line">By Joshua Charles E.</div>
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
 
-    <p><span class="dropcap">T</span>he most dangerous lie you’ve ever been told is that "hard work" is the key to abundance. If that were true, the streets of Lagos would be paved with gold from the sweat of every laborer. But they aren't. </p>
-    
-    <p>You sit there, staring at your <strong>Vivo Y1</strong> or your laptop, watching others—people with half your talent—command the life you want. You have published books on Selar that sit in silent digital graveyards. You have business ideas that never leave the "planning" stage. You are waiting for the "right time," not realizing that time is a thief currently stealing your youth.</p>
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
 
-    <div class="pull-quote">"You don't need more information. You need a Factory Reset."</div>
-
-    <h2>The Pain: The "Owner-Slave" Syndrome</h2>
-    <p>Right now, you are suffering from <strong>Learned Helplessness.</strong> You’ve been trained to believe that you need money to make money. You’ve been trained to believe that if you aren't physically "doing" everything, the money won't come. </p>
-    
-    <p class="pain-accent">This is the Owner-Slave Trap.</p>
-    
-    <p>If you take your hand off the steering wheel for 48 hours, your income dies. You don't own a business; you own a high-stress prison cell. This "Identity" of the hardworking, struggling expert is the very thing holding you back from <strong>Eden.</strong></p>
-
-    <h2>The Agitation: The Cost of Your Silence</h2>
-    <p>Every day you remain an "Invisible Genius," you are losing more than just money. You are losing your <strong>Perceived Value.</strong> Marketplaces don't reward "good" people; they reward "dominant" systems. </p>
-    
-    <p>If you don't fix this software error in your brain today, 2026 will end exactly like 2025. You will still be refreshing your Selar dashboard, looking for sales that aren't there. You will still be "praying" for a breakthrough while ignoring the <strong>Surgical System</strong> standing right in front of you.</p>
-
-    <h2>The Transition: The Bridge Back to Eden</h2>
-    <p>There is a shortcut. It’s called <strong>Doubt to Domination.</strong> It is the radar that steers you away from the rocks of "almost" and into the harbor of "Abundance." I didn't write this to give you more words to read—I wrote it to put your world in <strong>Motion.</strong></p>
-
-    <h2>Why the System Outweighs the Pain</h2>
-    <p>While the rest of the world is stuck in "The Moses Problem"—complaining about the Red Sea—you will be using the <strong>EQSP Wealth System</strong> to build a machine that works while you sleep. While other authors are "hoping" for sales, you will be using <strong>Sensory Triggers</strong> to make your products a biological necessity for your buyers.</p>
-
-    <div class="social-proof">
-        <span class="status">SUCCESSFUL</span>
-        <strong>OPAY NOTIFICATION</strong><br>
-        NAME: Segun A. (Agency Owner)<br>
-        PURCHASE: The Reset System<br>
-        MEMO: "Best 15k I've ever spent. I see the walls falling already."
-    </div>
-
-    <div class="offer-box">
-        <h3>CLAIM YOUR FACTORY RESET</h3>
-        <p>If you were to hire me for a 1-on-1 strategy session, it would cost you <strong>₦150,000.</strong></p>
-        <p class="old-price">Standard Price: ₦75,000</p>
-        <p>FOR THE NEXT 48 HOURS ONLY:</p>
-        <span class="new-price">₦15,000</span>
-        <a href="https://wa.link/nrafvh" class="cta-button">I'm Ready to Dominate</a>
-        <p style="margin-top:20px; font-size:0.8rem; color:#888;">Note: If ₦15,000 feels like a "risk," you have already lost. This is for those who value their future more than a few pizzas.</p>
-    </div>
-
-    <div class="hero-moment">
-        <h2>"You can steer yourself any direction you choose."</h2>
-        <p>The Hero isn't the person who never felt doubt. The Hero is the person who felt the doubt, saw the limitation, and decided to <strong>Shatter</strong> it anyway. Your <strong>Eden</strong> is waiting. Will you walk in, or will you stay in the desert?</p>
-        <a href="https://wa.link/nrafvh" class="cta-button" style="background: #fff; color: #000; margin-top: 30px;">THE RESET STARTS HERE</a>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 JOSHUA CHARLES E. | THE DOMINATOR CIRCLE</p>
-    </footer>
-</div>
-
-<script>
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+  
+  .font-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  .font-heading {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  
+  .font-body {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+  }
+  
+  .text-accent-gold {
+    color: #D4AF37;
+  }
+  
+  .divider-luxury {
+    border-top-width: 1px;
+    border-top-color: #2A2E3E;
+  }
+  
+  .btn-premium {
+    padding: 1rem 2rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition-property: all;
+    transition-duration: 300ms;
+    border-width: 1px;
+    border-color: #1B4D3E;
+    color: #1B4D3E;
+  }
+  
+  .btn-premium:hover {
+    background-color: #1B4D3E;
+    color: #F5F1E8;
+  }
+  
+  .btn-premium-filled {
+    padding: 1rem 2rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition-property: all;
+    transition-duration: 300ms;
+    background-color: #1B4D3E;
+    color: #D4AF37;
+    border-width: 1px;
+    border-color: #1B4D3E;
+  }
+  
+  .btn-premium-filled:hover {
+    background-color: #0F1419;
+  }
+  
+  .card-luxury {
+    background-color: #1A1F2E;
+    border-width: 1px;
+    border-color: #2A2E3E;
+    padding: 2rem;
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+  
+  .card-luxury:hover {
+    border-color: #1B4D3E;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  }
+}
     let time = 48 * 60 * 60; 
     const timerEl = document.getElementById('timer');
     setInterval(() => {
